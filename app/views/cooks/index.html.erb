@@ -1,0 +1,9 @@
+<% @cooks.each do |cook| %>
+    <%= cook.title %>
+    <%= cook.post %>
+    <%= image_tag "/get_image/#{cook.id}" %>
+    <p>
+    <%= link_to "削除", "/cooks/#{cook.id}" , method: :delete %>
+    </p>
+    <% end %>
+<%= link_to '投稿', new_cook_path %>

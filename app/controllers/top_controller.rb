@@ -5,10 +5,10 @@ class TopController < ApplicationController
 
   def login
     user = User.find_by(uid: params[:uid])
-    if user and BCrypt::Password.new(user.pass) == params[:pass]
+    if user and BCrypt::Password.new(user.password) == params[:password]
       #TODO: ログイン成功したことをユーザに知らせる
       session[:login_uid] = user.uid
-      redirect_to root_path
+      redirect_to controller: :cooks, action: :index
     else
       #TODO: エラーメッセージ
       render 'login'
