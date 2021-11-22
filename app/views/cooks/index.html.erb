@@ -1,9 +1,21 @@
+<h3>ケーキの作り方一覧</h3>
 <% @cooks.each do |cook| %>
-    <%= cook.title %>
-    <%= cook.post %>
-    <%= image_tag "/get_image/#{cook.id}" %>
+    <p>
+        <%= link_to cook.title, "/cooks/#{cook.id}" %>
+    </p>
+    <p>
+        <%= cook.impressions_count %>
+    </p>
     <p>
     <%= link_to "削除", "/cooks/#{cook.id}" , method: :delete %>
     </p>
     <% end %>
 <%= link_to '投稿', new_cook_path %>
+
+<h3>pv数ランキング</h3>
+<% @rank_cooks.each do |cook| %>
+    <p>
+        <%= cook.title %>
+    </p>
+    <%= cook.impressions_count %>
+<% end %>
