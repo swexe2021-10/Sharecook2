@@ -1,0 +1,8 @@
+<h3>pv数ランキング</h3>
+<% @rank_cooks.each do |cook| %>
+    <p>
+        <%= link_to cook.title, "/cooks/#{cook.id}" %>
+    </p>
+    <%= cook.impressions_count %>
+<% end %>
+<%= link_to "戻る", :back %>
