@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+<% @cooks.each do |cook| %>
+    <%= cook.title %>
+    <%= cook.post %>
+    <%= image_tag "/get_image/#{cook.id}" %>
+    <p>
+    <%= link_to "削除", "/cooks/#{cook.id}" , method: :delete %>
+    <% if cook.likes.count > 0 %>
+        <%= link_to '💖', like_path(cook), method: :delete %>
+    <% else %>
+        <%= link_to '❤', likes_path(cook_id: cook.id), method: :post %>
+    <% end %>
+    </p>
+    <% end %>
+<%= link_to '投稿', new_cook_path %>

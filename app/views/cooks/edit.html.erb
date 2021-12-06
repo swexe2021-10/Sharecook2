@@ -1,0 +1,9 @@
+<%= form_for @cook , url: {action: :update} do |f| %>
+ <%= f.label :title, 'ケーキ名' %>
+ <%= f.text_field :title %>
+ <%= f.label :post, '作り方' %>
+ <%= f.text_area :post, size: "20*10" %>
+ <%= f.label :file, '作成画像' %>
+ <%= f.file_field :file %>
+ <%= f.submit '投稿' %>
+ <% end %>

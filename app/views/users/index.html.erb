@@ -1,0 +1,9 @@
+<% @users.each do |user| %>
+    <%= user.uid %>
+    <%= user.password %>
+    <p>
+    <%= link_to '削除', "/users/#{user.id}", method: :delete %>
+    </p>
+<% end %>
+<%= link_to "戻る", :back %>
+<%= link_to "TOPページ", root_path %>
