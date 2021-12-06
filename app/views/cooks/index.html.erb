@@ -1,17 +1,28 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
+<h3>ケーキの作り方一覧</h3>
 <% @cooks.each do |cook| %>
-    <%= cook.title %>
-    <%= cook.post %>
-    <%= image_tag "/get_image/#{cook.id}" %>
+    <p>
+        <%= link_to cook.title, "/cooks/#{cook.id}" %>
+    </p>
+    <p>
+        <%= cook.impressions_count %>
+    </p>
     <p>
     <%= link_to "削除", "/cooks/#{cook.id}" , method: :delete %>
+    <%= link_to "編集", "/cooks/#{cook.id}/edit" %>
     <% if cook.likes.count > 0 %>
         <%= link_to '💖', like_path(cook), method: :delete %>
     <% else %>
         <%= link_to '❤', likes_path(cook_id: cook.id), method: :post %>
     <% end %>
     </p>
-    <% end %>
+<% end %>
+    
+<h3>pv数ランキング</h3>
+<% @rank_cooks.each do |cook| %>
+    <p>
+        <%= link_to cook.title, "/cooks/#{cook.id}" %>
+    </p>
+    <%= cook.impressions_count %>
+<% end %>
+<br>
 <%= link_to '投稿', new_cook_path %>

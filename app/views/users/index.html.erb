@@ -1,9 +1,19 @@
+<if current_user %>
 <% @users.each do |user| %>
-    <%= user.uid %>
-    <%= user.password %>
+    <p><%= user.uid %></p>
+    <p><%= user.password %></p>
     <p>
     <%= link_to '削除', "/users/#{user.id}", method: :delete %>
     </p>
 <% end %>
 <%= link_to "戻る", :back %>
 <%= link_to "TOPページ", root_path %>
+    <% else %>
+    <% @users.each do |user| %>
+        <p><%= user.uid %></p>
+        <p><%= user.password %></p>
+    <% end %>
+    <%= link_to "戻る", :back %>
+    <%= link_to "TOPページ", root_path %>
+<% end %>
+        

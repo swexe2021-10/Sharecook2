@@ -1,6 +1,10 @@
 class CooksController < ApplicationController
+    
+    impressionist :actions=> [:show]
+    
     def index
         @cooks = Cook.all
+        @rank_cooks = Cook.order(impressions_count: 'DESC')
     end
     
     def new 
@@ -14,7 +18,7 @@ class CooksController < ApplicationController
         if @cook.save
             redirect_to controller: :cooks , action: :index
         else 
-           render 'new'
+            render 'new'
         end 
     end 
     def get_image
@@ -32,6 +36,10 @@ class CooksController < ApplicationController
         Cook.update(title: title, post: pos , file: file )
          redirect_to controller: :cooks, action: :index
     end 
+    def show
+        @cook = Cook.find(params[:id])
+        impressionist(@cook, nil, unique: [:ip_address])
+    end
     def destroy
         cook = Cook.find(params[:id])
         cook.destroy

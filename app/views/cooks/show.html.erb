@@ -1,0 +1,12 @@
+<p><strong>ケーキの作り方</strong></p>
+<p>
+    <strong><%= @cook.title %></strong>
+</p>
+<p>
+    <strong><<%= @cook.post %></strong>
+</p>
+<p>
+    <%= image_tag "/get_image/#{@cook.id}" %>
+</p>
+<%= link_to '戻る', :back %> 
+
