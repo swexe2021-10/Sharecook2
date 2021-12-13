@@ -1,5 +1,5 @@
 class CooksController < ApplicationController
-    
+    before_action :set_q, only: [:index, :search]
     impressionist :actions=> [:show]
     
     def index
@@ -37,17 +37,31 @@ class CooksController < ApplicationController
         title = params[:cook][:title]
         pos = params[:cook][:post]
         file = params[:cook][:file].read
-        Cook.update(title: title, post: pos , file: file )
+        phrase = params[:cook][:phrase]
+        material = params[:cook][:material]
+        quantity = params[:cook][:quantity]
+        arrange = params[:cook][:arrange]
+        Cook.update(title: title, post: pos , file: file , phrase: phrase ,
+        material: material , quantity: quantity , arrange: arrange )
          redirect_to controller: :cooks, action: :index
     end 
     def show
         @cook = Cook.find(params[:id])
         impressionist(@cook, nil, unique: [:ip_address])
-        end
     end
     def destroy
         cook = Cook.find(params[:id])
         cook.destroy
         redirect_to controller: :cooks, action: :index
     end 
+    
+    def search
+        @results = @q.result
+    end 
+    
+    private
+    
+    def set_q
+        @q = Cook.ransack(params[:q])
+    end
 end 

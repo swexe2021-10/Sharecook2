@@ -5,5 +5,9 @@
  <p><%= f.text_area :post %></p>
  <p><%= f.label :file, '作成画像' %></p>
  <p><%= f.file_field :file %></p>
+ <%= f.label :phrase, 'キャッチフレーズ' %>
+ <p><%= f.text_area :phrase, :size=>"10*20" %></p>
+ <%= f.label :arrange, '工夫したポイント' %>
+ <p><%= f.text_area :arrange, :size=>"20*20" %></p>
  <p><%= f.submit '投稿' %></p>
  <% end %>

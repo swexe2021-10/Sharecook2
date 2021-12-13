@@ -70,3 +70,5 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'ransack'
+
