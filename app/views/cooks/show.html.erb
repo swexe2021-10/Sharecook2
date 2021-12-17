@@ -18,10 +18,9 @@
 
 <p class="resizeimage">
     <%= image_tag "/get_image/#{@cook.id}" %>
-</p>
-<<<<<<< HEAD
 
-=======
+</p>
+
 <% @cook.reviews.each do |e| %>
 <p>投稿者:<%= User.find(e.user_id).uid %></p>
 <p>コメント:<%= Review.find(e.cook_id).comment %></p>
@@ -30,7 +29,7 @@
     <% end %>
 <% end %>
 <%= link_to 'コメントする', new_review_path(cook_id: @cook.id) %>
->>>>>>> a903ef764f9a586da53bdef186cb3e6ce646a125
+
 <%= link_to '戻る', :back %> 
 
 <style>
