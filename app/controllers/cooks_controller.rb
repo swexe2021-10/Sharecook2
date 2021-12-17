@@ -21,6 +21,7 @@ class CooksController < ApplicationController
         @cook = Cook.new(title: title, post: pos , file: file , phrase: phrase ,
         material: material , quantity: quantity , arrange: arrange , user_id: user_id )
         if @cook.save
+            flash[:info] = "料理を投稿しました"
             redirect_to controller: :cooks , action: :index
         else 
             render 'new'
@@ -47,6 +48,8 @@ class CooksController < ApplicationController
          redirect_to controller: :cooks, action: :index
     end 
     def show
+        @reviews = current_user.reviews
+        #review.where(user_id: current_user.id )
         @cook = Cook.find(params[:id])
         impressionist(@cook, nil, unique: [:ip_address])
     end

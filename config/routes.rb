@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     get 'get_image/:id' , to: 'cooks#get_image'
 
     resources :likes
-
+    resources :reviews, omly: [:new, :create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
