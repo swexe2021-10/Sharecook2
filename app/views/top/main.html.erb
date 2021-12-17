@@ -1,2 +1,6 @@
+<% if flash[:notice] %>
+    <%=flash[:notice] %>
+<% end %>
+<br>
 <%= link_to 'ユーザ登録', new_user_path %>
 <%= link_to 'ログイン' , 'top/login' , method: :post %>

@@ -14,23 +14,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="cooks">Sharecook</a>
+    <a class="navbar-brand" href="../" >Sharecook</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="cooks/new">レシピ投稿</a>
+          <%= link_to "レシピ投稿", new_cook_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">コメント</a>
+          <%= link_to "コメント", root_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="ranks/index">ランキング</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+          <%= link_to "ランキング", ranks_index_path , class: "nav-link" %>
         </li>
       </ul>
     </div>

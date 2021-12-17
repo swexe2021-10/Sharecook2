@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     get "top/login"
     post "top/login"
+    get "top/logout"
     root "top#main"
     resources :users
     resources :cooks do 

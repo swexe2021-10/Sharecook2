@@ -17,8 +17,9 @@ class CooksController < ApplicationController
         material = params[:cook][:material]
         quantity = params[:cook][:quantity]
         arrange = params[:cook][:arrange]
+        user_id = current_user.id
         @cook = Cook.new(title: title, post: pos , file: file , phrase: phrase ,
-        material: material , quantity: quantity , arrange: arrange )
+        material: material , quantity: quantity , arrange: arrange , user_id: user_id )
         if @cook.save
             redirect_to controller: :cooks , action: :index
         else 

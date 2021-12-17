@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  skip_before_action :logged_in_user
+  skip_before_action :logged_in_user 
   def main
     render 'main'
   end
@@ -7,17 +7,18 @@ class TopController < ApplicationController
   def login
     user = User.find_by(uid: params[:uid])
     if user and BCrypt::Password.new(user.password) == params[:password]
-      #TODO: ログイン成功したことをユーザに知らせる
       session[:login_uid] = user.uid
+      flash[:notice] = "ログインが成功しました"
       redirect_to controller: :cooks, action: :index
     else
       #TODO: エラーメッセージ
       render 'login'
     end
+    
   end
 
   def logout
-    #TODO: ログアウトに成功したことをユーザに知らせる
+    flash[:notice] = 'ログアウトしました'
     session.delete(:login_uid)
     redirect_to root_path
   end

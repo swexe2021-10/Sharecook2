@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :logged_in_user
+    skip_before_action :logged_in_user, only: [:index, :create, :new]
     def index
         @users = User.all
     end 
@@ -11,7 +11,10 @@ class UsersController < ApplicationController
         password = BCrypt::Password.create( params[:user][:password])
         @user = User.new(uid: uid, password: password)
         if @user.save
+            flash[:notice] = '新規登録しました'
             redirect_to root_path
+        else
+            render 'login'
         end 
     end 
     def destroy

@@ -1,8 +1,16 @@
-<h3>pv数ランキング</h3>
-<% @rank_cooks.each do |cook| %>
-    <p>
-        <%= link_to cook.title, "/cooks/#{cook.id}" %>
-    </p>
-    <%= cook.impressions_count %>
-<% end %>
+<center><h3>pv数ランキング</h3></center>
+ <div class="table-responsive" >
+     <table class="table">
+        <tr>
+            <th>ケーキ名</th>
+            <th>PV数</th>
+        </tr>
+    <% @rank_cooks.each do |cook| %>
+        <tr>
+            <td><%= link_to cook.title, "/cooks/#{cook.id}" %></td>
+            <td><%= cook.impressions_count %></td>
+        </tr>
+    <% end %>
+    </table>
+</div>
 <%= link_to "戻る", :back %>
