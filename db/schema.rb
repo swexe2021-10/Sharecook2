@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_17_081722) do
+ActiveRecord::Schema.define(version: 2021_12_17_092207) do
 
 # Could not dump table "cooks" because of following StandardError
 #   Unknown type 'imteger' for column 'impressions_count'
@@ -50,7 +50,8 @@ ActiveRecord::Schema.define(version: 2021_12_17_081722) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
-    t.integer "evaluation"
+    t.integer "user_id"
+    t.integer "cook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
