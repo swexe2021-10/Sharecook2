@@ -1,0 +1,10 @@
+<%= form_for @review, url: {action: :create} do |f| %>
+<p>ケーキ名:<%= Cook.find(@review.cook_id).title %></p>
+<p>作り方:<%= Cook.find(@review.cook_id).post %></p>
+<p>キャッチフレーズ:<%= Cook.find(@review.cook_id).phrase %></p>
+<p>工夫したポイント:<%= Cook.find(@review.cook_id).arrange %></p>
+<p><%= f.hidden_field :cook_id %></p>
+<p><%= f.label :comment, 'コメント' %></p>
+<p><%= f.text_field :comment %></p>
+<p><%= f.submit '投稿' %></p>
+<% end %>
