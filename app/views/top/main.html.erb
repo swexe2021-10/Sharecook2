@@ -1,2 +1,69 @@
-<%= link_to 'ユーザ登録', new_user_path %>
-<%= link_to '投稿一覧' , 'top/login' , method: :post %>
+
+<div class="DivLink">
+  
+  <p align="center">
+ ユーザー登録
+ </p>
+<a class ="Link" href="users/new"></a>
+  </div>
+  
+    <div class="DivLink2">
+      <p align="center">
+  投稿一覧
+  
+  </p>
+  <a class ="Link" href="top/login"></a>
+</div>
+ 
+
+  
+<style>
+
+body{
+    background-color:#ffa07a
+}
+.DivLink{
+    font-size:50px;
+    position:relative;
+    text-align:center;
+    left: 6vw;
+	border-radius: 50%;
+    background-color:#ffffff;
+    display: inline-block;
+      top: 150px;
+    width : 40vw ; 
+	height: 40vw;
+}
+
+.DivLink2{
+    font-size:50px;
+    position:relative;
+    text-align:center;
+    left: 13vw;
+    top: 160px;
+    width : 40vw ;
+    height:40vw;
+    border-radius: 50%;
+    background-color:#ffffff;
+     display: inline-block;
+}
+
+.DivLink .Link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.DivLink2 .Link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>

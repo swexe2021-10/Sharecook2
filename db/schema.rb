@@ -10,24 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_11_22_082325) do
+ActiveRecord::Schema.define(version: 2021_12_06_065759) do
 
-  create_table "cooks", force: :cascade do |t|
-    t.string "title"
-    t.string "post"
-    t.binary "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "likes", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.string "comment_content"
     t.integer "user_id"
-    t.integer "cook_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-=======
-ActiveRecord::Schema.define(version: 2021_11_22_082043) do
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
 # Could not dump table "cooks" because of following StandardError
 #   Unknown type 'imteger' for column 'impressions_count'
@@ -56,7 +49,21 @@ ActiveRecord::Schema.define(version: 2021_11_22_082043) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["user_id"], name: "index_impressions_on_user_id"
->>>>>>> ada377c6c9276b29922439f89da851007fb187a5
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cook_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "post_content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

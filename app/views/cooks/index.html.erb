@@ -1,5 +1,8 @@
+<div class="DivLink">
 <h3>ケーキの作り方一覧</h3>
+
 <% @cooks.each do |cook| %>
+
     <p>
         <%= link_to cook.title, "/cooks/#{cook.id}" %>
     </p>
@@ -16,7 +19,8 @@
     <% end %>
     </p>
 <% end %>
-    
+    </div>
+    <div class="DivLink2">
 <h3>pv数ランキング</h3>
 <% @rank_cooks.each do |cook| %>
     <p>
@@ -24,5 +28,14 @@
     </p>
     <%= cook.impressions_count %>
 <% end %>
-<br>
 <%= link_to '投稿', new_cook_path %>
+</div>
+
+<style>
+
+body{
+    background-color:#ffa07a
+}
+
+
+</style>
