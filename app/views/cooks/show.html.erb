@@ -10,9 +10,15 @@
 </p>
 <p>
     <strong><%= @cook.arrange %></strong>
+
 </p>
-<p>
+
+<p class="resizeimage">
     <%= image_tag "/get_image/#{@cook.id}" %>
 </p>
+
 <%= link_to '戻る', :back %> 
 
+<style>
+.resizeimage img { width: 50%; }
+</style>
