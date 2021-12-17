@@ -7,10 +7,75 @@
 </ul>
 <% end %>
 <%= form_for @user , url: {action: :create} do |f| %>
-<%= f.label :uid, 'ID' %>
-<%= f.text_field :uid %>
-<%= f.label :password, 'パスワード' %>
+<div class="DivLink">
+  <p align="center">
+<%= f.label :uid, 'ID' %><br>
+<%= f.text_field :uid %><br>
+<%= f.label :password, 'パスワード' %><br>
 <%= f.password_field :password %>
-<%= f.submit '登録' %>
-<% end %>
-<%= link_to 'ユーザ一覧' , '/users' %>
+  <%= f.submit '登録' %><br>
+ </p>
+ <% end %>
+  </div>
+   
+
+  
+   
+    
+
+<div class="DivLink2">
+    ユーザー一覧
+     <a class= "Link" href="/users"></a>
+</div>
+
+
+<style>
+
+body{
+    background-color:#ffa07a
+}
+.DivLink{
+    font-size:50px;
+    position:relative;
+    text-align:center;
+    left: 6vw;
+	border-radius: 50%;
+    background-color:#ffffff;
+    display: inline-block;
+      top: 150px;
+    width : 40vw ; 
+	height: 40vw;
+}
+
+.DivLink2{
+    font-size:50px;
+    position:relative;
+    text-align:center;
+    left: 50vw;
+    top:-25vw;
+    width : 40vw ;
+    height:40vw;
+    border-radius: 50%;
+    background-color:#ffffff;
+     display: inline-block;
+}
+
+.DivLink .Link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.DivLink2 .Link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
