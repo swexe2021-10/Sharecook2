@@ -13,10 +13,14 @@
 </p>
 <p>
     <strong><%= @cook.arrange %></strong>
+
 </p>
-<p>
+
+<p class="resizeimage">
     <%= image_tag "/get_image/#{@cook.id}" %>
+
 </p>
+
 <% @cook.reviews.each do |e| %>
 <p>投稿者:<%= User.find(e.user_id).uid %></p>
 <p>コメント:<%= Review.find(e.cook_id).comment %></p>
@@ -25,5 +29,9 @@
     <% end %>
 <% end %>
 <%= link_to 'コメントする', new_review_path(cook_id: @cook.id) %>
+
 <%= link_to '戻る', :back %> 
 
+<style>
+.resizeimage img { width: 50%; }
+</style>

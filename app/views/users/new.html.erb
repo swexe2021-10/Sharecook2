@@ -10,11 +10,16 @@
 <div class="DivLink">
   <p align="center">
 <%= f.label :uid, 'ID' %><br>
+
+
 <%= f.text_field :uid %><br>
 <%= f.label :password, 'パスワード' %><br>
-<%= f.password_field :password %>
-  <%= f.submit '登録' %><br>
+<%= f.password_field :password %><br>
+ <%= f.submit '登録' %>
+</div>
+ 
  </p>
+ 
  <% end %>
   </div>
    
@@ -35,7 +40,7 @@ body{
     background-color:#ffa07a
 }
 .DivLink{
-    font-size:50px;
+    font-size:25px;
     position:relative;
     text-align:center;
     left: 6vw;
