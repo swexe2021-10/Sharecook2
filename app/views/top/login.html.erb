@@ -2,10 +2,12 @@
   
   <p align="center">
 <%= form_tag '/top/login', method: :post do %>
-<%= label_tag :uid, 'ユーザーID' %><br>
+<%= label_tag :uid, 'ユーザーID' %>
+<br>
 <%= text_field_tag :uid %><br>
 <%= label_tag :password, 'パスワード' %>
-<%= password_field_tag :password %>
+<br>
+<%= password_field_tag :password %><br>
 <%= submit_tag 'ログイン' %>
 <% end %>
 </div>

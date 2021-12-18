@@ -22,8 +22,8 @@
 </p>
 
 <% @cook.reviews.each do |e| %>
-<p>投稿者:<%= User.find(e.user_id).uid %></p>
-<p>コメント:<%= Review.find(e.cook_id).comment %></p>
+<p>投稿者:<%= e.user.uid %></p>
+<p>コメント:<%= e.comment %></p>
     <% if e.user_id == current_user.id %>
     <%= link_to '削除', review_path(e), method: :delete %>
     <% end %>

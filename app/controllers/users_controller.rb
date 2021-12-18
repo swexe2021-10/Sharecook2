@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             flash[:notice] = '新規登録しました'
             redirect_to root_path
         else
-            render 'login'
+            render 'new'
         end 
     end 
     def destroy
